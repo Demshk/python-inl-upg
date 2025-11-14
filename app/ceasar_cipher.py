@@ -4,7 +4,7 @@ import os
 class CaesarCipher:
 
     def __init__(self, data_file="data.json"):
-       self.data_file = data_file
+        self.data_file = data_file
 
     def encrypt(self, meddelande, key):
        resultat = ""
@@ -28,13 +28,13 @@ class CaesarCipher:
        self.save_data("decrypt", meddelande, resultat, key)
        return resultat
 
-    def save_data(self, action, original, resultat, key):
+    def save_data(self, att_göra, original, resultat, key):
        in_data = {
-           "action": action,
+           "Att göra": att_göra,
            "original": original,
            "resultat": resultat,
            "key": key
-       }
+        }
       
        if os.path.exists(self.data_file):
            with open(self.data_file, "r") as f:
@@ -62,7 +62,7 @@ class CaesarCipher:
                else:
                    print("\n--- Sparad data ---")
                    for in_data in data:
-                       print(f"{in_data['action'].capitalize()}: '{in_data['original']}' → '{in_data['resultat']}' (nyckel: {in_data['key']})")
+                       print(f"{in_data['Att göra'].capitalize()}: '{in_data['original']}' → '{in_data['resultat']}' (nyckel: {in_data['key']})")
        else:
            print("\nIngen sparad fil hittades.")
 
